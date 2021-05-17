@@ -37,7 +37,7 @@ You can see what we've done before and what we will work on in the future;
 
 Now its ready to work :)
 
-### Example code and screen shot
+### Example code and screenshot
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -80,6 +80,9 @@ Now its ready to work :)
 
 </html>
 ```
+
+---
+
 ![Example Code](./images/example.png)
 
 ## Contributing
