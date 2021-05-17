@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo ">-------------| Pre Commit hook starting |-------------<"
+npm run lint --- --fix
+if [ $? -ne 0 ]
+then
+    echo ">-------------| LINT ERROR! Please fix error(s)! |-------------<"
+    exit 1
+fi
+
+npm run minify
+if [ $? -ne 0 ]
+then
+    echo ">-------------| MINIFY ERROR! |-------------<"
+    exit 1
+fi
+
+echo ">-------------| Pre Commit hook SUCCESSFUL |-------------<"

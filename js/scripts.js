@@ -89,13 +89,13 @@ const updateStyles = function (variables) {
             color: #505050;
             font-size: 12px;
           `,
-    avatar: `
+    avatar:`
             width: ${variables.avatarSize};
             border: .8px solid ${variables.grey};
             border-radius: 50%;
           `,
   };
-}
+};
 
 let styles = updateStyles(variables);
 
@@ -126,8 +126,8 @@ const getUserInfo = function (username) {
     } catch (e) {
       rej(e);
     }
-  })
-}
+  });
+};
 
 // Read user events from GitHub
 const getUserEvents = function (username) {
@@ -153,11 +153,11 @@ const getUserEvents = function (username) {
     } catch (e) {
       rej(e);
     }
-  })
-}
+  });
+};
 
 // Create timeline basic html hierarchy
-const createTimeline = function (timeline,user) {
+const createTimeline = function (timeline, user) {
   timeline.innerHTML = `
         <div style="${styles.header}">
           Github Events <small style="${styles.headerSmall}">by 
@@ -174,22 +174,22 @@ const createTimeline = function (timeline,user) {
           <!-- Events inject here -->
         </ul>
         `;
-}
+};
 
 // Inject event components with user data to timeline
 const injectEventComponents = function (timeline, user, events) {
   let eventList = timeline.childNodes[3];
 
   if(!events){
-    eventList.innerHTML = '<p style="text-align:center; color: grey;">User not found an event</p>'
+    eventList.innerHTML = '<p style="text-align:center; color: grey;">User not found an event</p>';
   }
 
   for (let event of events) {
     let dateFormatOptions = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    },
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      },
       eventDate = new Date(event.created_at).toLocaleDateString('en-US', dateFormatOptions),
       ownerName = event.repo.name.split('/')[0].toLowerCase(),
       ownerAvatar = event.org ? event.org.avatar_url : event.actor.avatar_url;
@@ -235,17 +235,17 @@ const injectEventComponents = function (timeline, user, events) {
           `;
 
     // Event component hover effect.
-    component.addEventListener('mouseover', function (e) {
+    component.addEventListener('mouseover', function () {
       component.style.backgroundColor = variables.hoverBacground;
     });
-    component.addEventListener('mouseout', function (e) {
+    component.addEventListener('mouseout', function () {
       component.style.backgroundColor = 'white';
     });
 
     // Event component 
-    component.addEventListener('click', function (e) {
+    component.addEventListener('click', function () {
       window.open(`https://github.com/${event.repo.name}`, '_blank');
-    })
+    });
 
     // Add event component to events
     eventList.appendChild(component);
@@ -257,20 +257,20 @@ const injectEventComponents = function (timeline, user, events) {
   footer.innerHTML = `
             Coded by <a href="https://github.com/saracalihan/" target="_blank">@saracalihan</a>`;
   eventList.appendChild(footer);
-}
+};
 
 const rander = function (timeline, user, events) {
   if (user) {
     styles = updateStyles(variables);
-    createTimeline(timeline,user);
+    createTimeline(timeline, user);
     injectEventComponents(timeline, user, events);
   } else {
     errorUserNotFound(timeline);
   }
-}
+};
 
 // Restyle timeline user grid and dynamic css variables
-const resizeTimeline = function (timeline,user,events) {
+const resizeTimeline = function (timeline, user, events) {
   var isChange = false;
   if (timeline.clientWidth < 330) {
     variables.headerFontSize = '18px';
@@ -288,15 +288,13 @@ const resizeTimeline = function (timeline,user,events) {
   }
 
   if (isChange) {
-    rander(timeline, user, events)
+    rander(timeline, user, events);
   }
-
-}
+};
 
 const errorUserNotFound = function (timeline) {
-  timeline.innerHTML = `<p style="text-align: center;margin: 5px;">\'<strong>${timeline.dataset.username}</strong>\' user not found!</p>`;
-}
-
+  timeline.innerHTML = `<p style="text-align: center;margin: 5px;">'<strong>${timeline.dataset.username}</strong>' user not found!</p>`;
+};
 
 // >-----------| START POINT |------------<
 // Get user personal data and events then
@@ -322,6 +320,6 @@ for (let timeline of timelines) {
       window.addEventListener('resize', function () {
         resizeTimeline(timeline, user, events);
       });
-      resizeTimeline(timeline,user,events);
+      resizeTimeline(timeline, user, events);
     });
 }
