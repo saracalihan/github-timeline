@@ -14,13 +14,13 @@ You can see what we've done before and what we will work on in the future;
 - [x] Basic styling
 - [x] Multiple timeline in same file
 - [x] Responsive styling(auto detected screen size and restyling)
-- [] Event(start, push, commit, review etc.) icon
-- [] Detailed event info
-- [] Multiple language
-- [] Light/Dark theme
-- [] Fix size(small, medium, large) attribute
-- [] Auto component generator and previewer web site
-- [] Customizable colors
+- [ ] Event(start, push, commit, review etc.) icon
+- [ ] Detailed event info
+- [ ] Multiple language
+- [ ] Light/Dark theme
+- [ ] Fix size(small, medium, large) attribute
+- [ ] Auto component generator and previewer web site
+- [ ] Customizable colors
 
 `// TODO`
 
@@ -37,7 +37,7 @@ You can see what we've done before and what we will work on in the future;
 
 Now its ready to work :)
 
-### Example code and screen shot
+### Example code and screenshot
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -80,6 +80,9 @@ Now its ready to work :)
 
 </html>
 ```
+
+---
+
 ![Example Code](./images/example.png)
 
 ## Contributing
