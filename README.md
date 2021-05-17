@@ -14,13 +14,13 @@ You can see what we've done before and what we will work on in the future;
 - [x] Basic styling
 - [x] Multiple timeline in same file
 - [x] Responsive styling(auto detected screen size and restyling)
-- [] Event(start, push, commit, review etc.) icon
-- [] Detailed event info
-- [] Multiple language
-- [] Light/Dark theme
-- [] Fix size(small, medium, large) attribute
-- [] Auto component generator and previewer web site
-- [] Customizable colors
+- [ ] Event(start, push, commit, review etc.) icon
+- [ ] Detailed event info
+- [ ] Multiple language
+- [ ] Light/Dark theme
+- [ ] Fix size(small, medium, large) attribute
+- [ ] Auto component generator and previewer web site
+- [ ] Customizable colors
 
 `// TODO`
 
