@@ -32,7 +32,7 @@ You can see what we've done before and what we will work on in the future;
 
 **2**: Add the external script in your body
 ```html
-<script src="https://cdn.jsdelivr.net/gh/saracalihan/github-timeline/scripts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/saracalihan/github-timeline/js/scripts.min.js"></script>
 ```
 
 Now its ready to work :)
@@ -75,7 +75,7 @@ Now its ready to work :)
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/gh/saracalihan/github-timeline/scripts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/saracalihan/github-timeline/js/scripts.min.js"></script>
     </body>
 
 </html>
