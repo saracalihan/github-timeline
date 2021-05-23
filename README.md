@@ -37,6 +37,8 @@ You can see what we've done before and what we will work on in the future;
 
 Now its ready to work :)
 
+[Try it](https://codepen.io/saracalihan/pen/vYxxMjg)
+
 ### Example code and screenshot
 ```html
 <!DOCTYPE html>
