@@ -1,0 +1,13 @@
+ul {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  list-style: none;
+}
+ul li a {
+  color: red;
+}
+
+/*# sourceMappingURL=style.css.map */

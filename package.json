@@ -8,8 +8,9 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "minify": "minify js/scripts.js > js/scripts.min.js",
-    "build-hook": "cp -R hooks ./.git/ && chmod +x ./.git/hooks/pre-commit"
+    "minify": "minify js/scripts.js > js/scripts.min.js & minify css/style.css > css/style.min.css",
+    "build-hook": "cp -R hooks ./.git/ && chmod +x ./.git/hooks/pre-commit",
+    "sass-watch": "sass --watch css/main.scss css/style.css"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,8 @@
   },
   "homepage": "https://github.com/saracalihan/github-timeline#readme",
   "dependencies": {
-    "minify": "^7.0.2"
+    "minify": "^7.0.2",
+    "sass": "^1.35.2"
   },
   "devDependencies": {
     "eslint": "^7.26.0"
