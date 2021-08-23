@@ -78,8 +78,7 @@
 .github-timeline .events .not-found {
   padding: 0 8px;
   font-size: var(--mainFontSize);
-  color: #1d1c1c;
-  font-weight: bold;
+  color: #3b3b3b;
   text-align: center;
 }
 .github-timeline .events .footer {

@@ -1,4 +1,4 @@
-# GitHub Timeline V1.0.1
+# GitHub Timeline V1.1.0
 Its simple use embeded GitHub timeline.Its work with api.github.
 
 ## Introduce
