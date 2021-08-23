@@ -1,5 +1,5 @@
 {
-  "name": "github-timeline",
+  "name": "embedded-github-timeline",
   "version": "1.0.1",
   "description": "Best GitHub timeline component",
   "main": "js/scripts.js",
