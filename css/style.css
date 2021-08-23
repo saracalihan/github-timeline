@@ -1,13 +1,119 @@
-ul {
-  float: left;
-  margin: 0;
-  padding: 0;
+:root {
+  --background: white;
+  --avatarSize: 80px;
+  --headerFontSize: 28px;
+  --mainFontSize: 16px;
+  --dateFontSize: 12px;
 }
-ul li {
+
+.github-timeline {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  min-width: 210px;
+  max-height: 600px;
+  padding: 10px 0 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  background-color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.github-timeline .header {
+  position: relative;
+  box-sizing: border-box;
+  padding-left: 15px;
+  z-index: 3;
+  border-bottom: 0.5px solid #ddd;
+  color: #1d1c1c;
+  font-size: var(--headerFontSize);
+}
+.github-timeline .header .header-small {
+  color: #a8a8a8;
+  font-size: 14px;
+}
+.github-timeline .events {
+  overflow-y: auto;
   list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--background);
 }
-ul li a {
-  color: red;
+.github-timeline .events .event {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px;
+  font-size: var(--mainFontSize);
+  border-top: 1px solid #ddd;
+  transition: 0.2s background-color;
+  cursor: pointer;
+}
+.github-timeline .events .event:hover {
+  background-color: #f7f7f7;
+}
+.github-timeline .events .event .avatar {
+  width: var(--avatarSize);
+  border: 0.8px solid #ddd;
+  border-radius: 50%;
+}
+.github-timeline .events .event .event-detail {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: var(--mainFontSize);
+}
+.github-timeline .events .event .event-detail .event-name {
+  margin: 0;
+  color: #1d1c1c;
+  text-decoration: none;
+  font-weight: bold;
+}
+.github-timeline .events .event .date {
+  margin: 0;
+  color: #505050;
+  font-size: var(--dateFontSize);
+  text-align: right;
+}
+.github-timeline .events .not-found {
+  padding: 0 8px;
+  font-size: var(--mainFontSize);
+  color: #1d1c1c;
+  font-weight: bold;
+  text-align: center;
+}
+.github-timeline .events .footer {
+  padding: 5px 0;
+  border-top: 0.5px solid #ddd;
+  font-size: var(--mainFontSize);
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+@media (max-width: 425px) {
+  :root {
+    --avatarSize: 30px;
+    --headerFontSize: 18px;
+    --mainFontSize: 12px;
+    --dateFontSize: 10px;
+  }
+}
+@media (min-width: 425px) and (max-width: 500px) {
+  :root {
+    --avatarSize: 50px;
+    --headerFontSize: 24px;
+    --mainFontSize: 14px;
+    --dateFontSize: 12px;
+  }
+}
+@media (min-width: 500px) {
+  :root {
+    --avatarSize: 80px;
+    --headerFontSize: 28px;
+    --mainFontSize: 16px;
+    --dateFontSize: 14px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

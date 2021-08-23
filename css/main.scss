@@ -1,13 +1,144 @@
-ul {
-    float: left;
-    margin: 0;
-    padding: 0;
+$grey: #ddd;
+$lightBlack: #a8a8a8;
+$softBlack: rgb(29, 28, 28);
+$hoverbackground: #f7f7f7;
 
-    li {
-        list-style: none;
+$width: 500px;
+$heigth: 600px;
 
-        a { 
-            color: red;
+
+$smallBreakpoint: 330px;
+$mediumBreakpoint: 425px;
+$largeBreakpoint: 500px;
+
+:root{
+    --background: white;
+    --avatarSize: 80px;
+    --headerFontSize: 28px;
+    --mainFontSize: 16px;
+    --dateFontSize: 12px;
+}
+
+.github-timeline{
+    display: flex;
+    flex-direction: column;
+    max-width: $width;
+    min-width: 210px;
+    max-height: $heigth;
+    padding: 10px 0 10px 0;
+    border: 1px solid $grey;
+    border-radius: 15px;
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+
+    .header{
+        position: relative;
+        box-sizing: border-box;
+        padding-left: 15px;
+        z-index: 3;
+        border-bottom: .5px solid $grey;
+        color: $softBlack;
+        font-size: var(--headerFontSize);
+        
+        .header-small{
+            color: $lightBlack;
+            font-size: 14px;
         }
+    }
+    
+    .events{
+        overflow-y: auto;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        background-color: var(--background);
+
+        .event{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 8px;
+            font-size: var(--mainFontSize);
+            border-top: 1px solid $grey;
+            transition: .2s background-color;
+            cursor: pointer;
+
+            &:hover{
+                background-color: $hoverbackground;
+            }
+
+            .avatar{
+                width: var(--avatarSize);
+                border: .8px solid $grey;
+                border-radius: 50%;
+            }
+    
+            .event-detail{
+                width: 60%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+                font-size: var(--mainFontSize);
+    
+                .event-name{
+                    margin: 0;
+                    color: $softBlack;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+            }
+    
+            .date{
+                margin: 0;
+                color: #505050;
+                font-size: var(--dateFontSize);
+                text-align: right;
+            }
+    
+        }
+        
+        .not-found{
+            padding: 0 8px;
+            font-size: var(--mainFontSize);
+            color: $softBlack;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .footer{
+            padding: 5px 0;
+            border-top: .5px solid $grey;
+            font-size: var(--mainFontSize);
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
+}
+
+@media (max-width: $mediumBreakpoint ) {
+    :root{
+        --avatarSize: 30px;
+        --headerFontSize: 18px;
+        --mainFontSize: 12px;
+        --dateFontSize: 10px;
+    }
+}
+
+@media (min-width: $mediumBreakpoint) and (max-width: $largeBreakpoint ){
+    :root{
+        --avatarSize: 50px;
+        --headerFontSize: 24px;
+        --mainFontSize: 14px;
+        --dateFontSize: 12px;
+    }
+}
+
+@media (min-width: $largeBreakpoint ) {
+    :root{
+        --avatarSize: 80px;
+        --headerFontSize: 28px;
+        --mainFontSize: 16px;
+        --dateFontSize: 14px;
     }
 }
