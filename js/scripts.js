@@ -9,8 +9,8 @@
 // Import external css
 const _style = document.createElement('link');
 _style.setAttribute('rel', 'stylesheet');
-_style.setAttribute('href', '../css/style.min.css');
-document.head.appendChild(_style)
+_style.setAttribute('href', 'https://cdn.jsdelivr.net/gh/saracalihan/github-timeline/css/style.min.css');
+document.head.appendChild(_style);
 
 const timelines = document.getElementsByClassName('github-timeline');
 
@@ -32,7 +32,6 @@ const getUserInfo = function (username) {
               type: 'user',
               isSuccess: false,
               data
-
             });
           }
         });
@@ -103,10 +102,10 @@ const injectEventComponents = function (timeline, user, events) {
 
   for (let event of events) {
     let dateFormatOptions = {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    },
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      },
       eventDate = new Date(event.created_at).toLocaleDateString('en-US', dateFormatOptions),
       ownerName = event.repo.name.split('/')[0].toLowerCase(),
       ownerAvatar = event.org ? event.org.avatar_url : event.actor.avatar_url;
@@ -163,13 +162,13 @@ const injectEventComponents = function (timeline, user, events) {
   // Add Hidden footer
   let footer = document.createElement('div');
   footer.className = 'footer';
-  footer.innerHTML = `Coded by <a href="https://github.com/saracalihan/" target="_blank">@saracalihan</a>`;
+  footer.innerHTML = 'Coded by <a href="https://github.com/saracalihan/" target="_blank">@saracalihan</a>';
   eventList.appendChild(footer);
 };
 
 const rander = function (timeline, user, events) {
-    createTimeline(timeline);
-    injectEventComponents(timeline, user, events);
+  createTimeline(timeline);
+  injectEventComponents(timeline, user, events);
 };
 
 // >-----------| START POINT |------------<
