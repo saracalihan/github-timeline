@@ -1,45 +1,65 @@
-$grey: #ddd;
 $lightBlack: #a8a8a8;
-$softBlack: rgb(29, 28, 28);
-$hoverbackground: #f7f7f7;
 
 $width: 500px;
 $heigth: 600px;
-
 
 $smallBreakpoint: 330px;
 $mediumBreakpoint: 425px;
 $largeBreakpoint: 500px;
 
-:root{
-    --background: white;
-    --avatarSize: 80px;
-    --headerFontSize: 28px;
-    --mainFontSize: 16px;
-    --dateFontSize: 12px;
-}
-
-.github-timeline{
+div.github-timeline{
     display: flex;
     flex-direction: column;
     max-width: $width;
     min-width: 210px;
     max-height: $heigth;
     padding: 10px 0 10px 0;
-    border: 1px solid $grey;
+    border: 1px solid var(--border);
     border-radius: 15px;
-    background-color: white;
+    background-color: var(--background);
     font-family: Arial, Helvetica, sans-serif;
+    
+    --background: white;
+    --border: #ddd;
+    --hoverbackground: #eeeeee;
+    --textColor: rgb(29, 28, 28);
+    --dateColor: #636363;
+    --linkColor: blue;
+    --avatarSize: 80px;
+    --headerFontSize: 28px;
+    --mainFontSize: 16px;
+    --dateFontSize: 12px;
 
+    & * {
+        color: var(--textColor);
+        background-color: unset;
+        color: unset;
+        font-size: unset;
+        text-align: unset;
+        margin: unset;
+        padding: unset;
+        border: unset;
+    }
+
+    &.dark{
+        --background: #292f33;
+        --border:#919191;
+        --hoverbackground:rgb(32, 38, 43);
+        --textColor: white;
+        --dateColor: #807a7a;
+        & .event:hover{
+            --dateColor: #bdbdbd;
+        }
+    }
     .header{
         position: relative;
         box-sizing: border-box;
         padding-left: 15px;
         z-index: 3;
-        border-bottom: .5px solid $grey;
-        color: $softBlack;
+        border-bottom: .5px solid var(--border);
+        color: var(--textColor);
         font-size: var(--headerFontSize);
-        
+        text-align: left;
         .header-small{
             color: $lightBlack;
             font-size: 14px;
@@ -52,6 +72,7 @@ $largeBreakpoint: 500px;
         padding: 0;
         margin: 0;
         background-color: var(--background);
+        color: var(--textColor);
 
         .event{
             display: flex;
@@ -59,30 +80,33 @@ $largeBreakpoint: 500px;
             justify-content: space-between;
             padding: 8px;
             font-size: var(--mainFontSize);
-            border-top: 1px solid $grey;
+            border-top: 1px solid var(--border);
             transition: .2s background-color;
             cursor: pointer;
 
             &:hover{
-                background-color: $hoverbackground;
+                background-color: var(--hoverbackground);
             }
 
             .avatar{
                 width: var(--avatarSize);
-                border: .8px solid $grey;
+                border: .8px solid var(--border);
                 border-radius: 50%;
             }
     
             .event-detail{
-                width: 60%;
                 display: flex;
                 flex-direction: column;
                 justify-content: space-around;
+                width: 60%;
+                margin: 0 8px;
+                text-align: left;
                 font-size: var(--mainFontSize);
     
                 .event-name{
+                    display: inline;
                     margin: 0;
-                    color: $softBlack;
+                    color: var(--textColor);
                     text-decoration: none;
                     font-weight: bold;
                 }
@@ -90,7 +114,7 @@ $largeBreakpoint: 500px;
     
             .date{
                 margin: 0;
-                color: #505050;
+                color: var(--dateColor);
                 font-size: var(--dateFontSize);
                 text-align: right;
             }
@@ -99,14 +123,15 @@ $largeBreakpoint: 500px;
         
         .not-found{
             padding: 0 8px;
-            font-size: var(--mainFontSize);
-            color: #3b3b3b;
+            padding-top: 10px;
             text-align: center;
+            color: var(--textColor);
+            font-size: var(--mainFontSize);
         }
 
         .footer{
             padding: 5px 0;
-            border-top: .5px solid $grey;
+            border-top: .5px solid var(--border);
             font-size: var(--mainFontSize);
             text-align: center;
             font-size: 14px;
@@ -116,7 +141,7 @@ $largeBreakpoint: 500px;
 }
 
 @media (max-width: $mediumBreakpoint ) {
-    :root{
+    div.github-timeline{
         --avatarSize: 30px;
         --headerFontSize: 18px;
         --mainFontSize: 12px;
@@ -125,7 +150,7 @@ $largeBreakpoint: 500px;
 }
 
 @media (min-width: $mediumBreakpoint) and (max-width: $largeBreakpoint ){
-    :root{
+    div.github-timeline{
         --avatarSize: 50px;
         --headerFontSize: 24px;
         --mainFontSize: 14px;
@@ -134,7 +159,7 @@ $largeBreakpoint: 500px;
 }
 
 @media (min-width: $largeBreakpoint ) {
-    :root{
+    div.github-timeline{
         --avatarSize: 80px;
         --headerFontSize: 28px;
         --mainFontSize: 16px;
