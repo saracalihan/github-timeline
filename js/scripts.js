@@ -9,7 +9,8 @@
 // Import external css
 const _style = document.createElement('link');
 _style.setAttribute('rel', 'stylesheet');
-_style.setAttribute('href', 'https://cdn.jsdelivr.net/gh/saracalihan/github-timeline/css/style.min.css');
+_style.setAttribute('href', 'https://cdn.jsdelivr.net/gh/saracalihan/github-timeline/css/style.css');
+
 document.head.appendChild(_style);
 
 const timelines = document.getElementsByClassName('github-timeline');
@@ -70,6 +71,10 @@ const getUserEvents = function (username) {
 
 // Create timeline basic html hierarchy
 const createTimeline = function (timeline) {
+  // Set theme
+  let theme = timeline.dataset.theme ? timeline.dataset.theme : 'light';
+  timeline.classList.add(theme);
+
   timeline.innerHTML = `
         <div class="header">
           Github Events <small class="header-small">by 
@@ -91,13 +96,10 @@ const createTimeline = function (timeline) {
 // Inject event components with user data to timeline
 const injectEventComponents = function (timeline, user, events) {
   let eventList = timeline.childNodes[3];
-
-  if (!user) {
-    return eventList.innerHTML = '<p class="not-found">User not found!</p>';
-  }
-
-  if (!events) {
-    return eventList.innerHTML = '<p class="not-found">Oops! We couldn\'t find any activity of the user</p>';
+  console.log(user, events);
+  if (!user || !events) {
+    let text = !user ? 'User not found!' : 'Oops! We couldn\'t find any activity of the user';
+    return eventList.innerHTML = `<p class="not-found">${text}</p>`;
   }
 
   for (let event of events) {
@@ -138,7 +140,7 @@ const injectEventComponents = function (timeline, user, events) {
               </p>
               <a
                 href="https://github.com/${event.repo.name}"
-                style="margin:0;text-decoration: none; color: rgb(29, 28, 28)"
+                style="margin:0;text-decoration: none;"
               >
                 to: ${event.repo.name}
               </a>

@@ -1,1 +1,32 @@
+# ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+.vscode/
+.editorconfig
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.swap
+*.swp
+
+# Local History for Visual Studio Code
+.history/
+
 node_modules/
+test/
+
+# Optional npm cache directory
+.npm
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*

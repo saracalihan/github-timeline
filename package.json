@@ -1,6 +1,6 @@
 {
   "name": "embedded-github-timeline",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Best GitHub timeline component",
   "main": "js/scripts.js",
   "directories": {
